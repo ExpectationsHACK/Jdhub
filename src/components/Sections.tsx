@@ -12,6 +12,7 @@ import {
 } from "./icons";
 import {
   contact,
+  formatNaira,
   grades,
   services,
   stats,
@@ -196,7 +197,7 @@ export function Stock() {
             <a
               key={item.model}
               href={whatsappLink(
-                `Hi JDHub, is the ${item.model} ${item.storage} (${item.color}, ${item.grade}) at $${item.price} (≈ ₦${item.priceNgn.toLocaleString("en-NG")}) still available?`,
+                `Hi JDHub, is the ${item.model} ${item.storage} (${item.color}, ${item.grade}) at ${formatNaira(item.price)} still available?`,
               )}
               target="_blank"
               rel="noopener noreferrer"
@@ -218,12 +219,9 @@ export function Stock() {
                 {item.storage} · {item.color}
               </p>
               <div className="mt-auto flex items-center justify-between pt-3">
-                <span className="text-lg font-bold">${item.price}</span>
+                <span className="text-lg font-bold tabular-nums">{formatNaira(item.price)}</span>
                 <span className="font-mono text-xs text-grade">{item.grade}</span>
               </div>
-              <p className="mt-0.5 text-xs text-muted tabular-nums">
-                ≈ ₦{item.priceNgn.toLocaleString("en-NG")}
-              </p>
             </a>
           ))}
         </div>
@@ -249,7 +247,7 @@ export function Services() {
             <div key={s.name} className="rounded-2xl border border-line p-6">
               <h3 className="font-bold">{s.name}</h3>
               <p className="mt-1.5 text-sm leading-relaxed text-muted">{s.description}</p>
-              <p className="mt-4 text-lg font-bold text-accent">${s.price}</p>
+              <p className="mt-4 text-lg font-bold text-accent">{formatNaira(s.price)}</p>
             </div>
           ))}
         </div>

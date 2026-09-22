@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { estimateOffer, grades, models, whatsappLink, type Grade } from "@/lib/data";
+import { estimateOffer, formatNaira, grades, models, whatsappLink, type Grade } from "@/lib/data";
 
 const fieldClass =
   "w-full rounded-lg border border-line bg-white px-3 py-2.5 pr-9 text-[15px] text-ink outline-none transition focus:border-ink";
@@ -22,7 +22,7 @@ export default function EstimateCard() {
     if (!next.storage.includes(storage)) setStorage(next.storage[0]);
   }
 
-  const lockMessage = `Hi JDHub, I'd like to lock my offer: ${model} ${storage}, ${gradeName} condition — $${offer} cash offer.`;
+  const lockMessage = `Hi JDHub, I'd like to lock my offer: ${model} ${storage}, ${gradeName} condition — ${formatNaira(offer)} cash offer.`;
 
   return (
     <div
@@ -72,7 +72,7 @@ export default function EstimateCard() {
 
       <div className="mt-6 flex items-end justify-between border-t border-dashed border-line pt-5">
         <div>
-          <p className="text-4xl font-bold tracking-tight text-accent tabular-nums">${offer}</p>
+          <p className="text-3xl font-bold tracking-tight text-accent tabular-nums sm:text-4xl">{formatNaira(offer)}</p>
           <p className="mt-1 font-mono text-xs uppercase text-muted">
             {model} · Cash offer
           </p>

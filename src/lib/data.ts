@@ -5,6 +5,10 @@ export const contact = {
   whatsapp: "2349163216445",
 };
 
+export function formatNaira(amount: number) {
+  return `₦${amount.toLocaleString("en-NG")}`;
+}
+
 export function whatsappLink(message?: string) {
   const base = `https://wa.me/${contact.whatsapp}`;
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
@@ -50,20 +54,20 @@ export const grades: {
   },
 ];
 
-/** Cash-offer base price for the smallest storage tier in "Like New" condition. */
+/** Cash-offer base price (₦) for the smallest storage tier in "Like New" condition. */
 export const models: { name: string; base: number; storage: string[] }[] = [
-  { name: "iPhone 16 Pro Max", base: 760, storage: ["256GB", "512GB", "1TB"] },
-  { name: "iPhone 16 Pro", base: 640, storage: ["128GB", "256GB", "512GB", "1TB"] },
-  { name: "iPhone 16", base: 470, storage: ["128GB", "256GB", "512GB"] },
-  { name: "iPhone 15 Pro Max", base: 580, storage: ["256GB", "512GB", "1TB"] },
-  { name: "iPhone 15 Pro", base: 480, storage: ["128GB", "256GB", "512GB", "1TB"] },
-  { name: "iPhone 15", base: 360, storage: ["128GB", "256GB", "512GB"] },
-  { name: "iPhone 14 Pro Max", base: 440, storage: ["128GB", "256GB", "512GB", "1TB"] },
-  { name: "iPhone 14 Pro", base: 380, storage: ["128GB", "256GB", "512GB", "1TB"] },
-  { name: "iPhone 14", base: 270, storage: ["128GB", "256GB", "512GB"] },
-  { name: "iPhone 13", base: 210, storage: ["128GB", "256GB", "512GB"] },
-  { name: "iPhone 12", base: 150, storage: ["64GB", "128GB", "256GB"] },
-  { name: "iPhone 11", base: 110, storage: ["64GB", "128GB", "256GB"] },
+  { name: "iPhone 16 Pro Max", base: 1_140_000, storage: ["256GB", "512GB", "1TB"] },
+  { name: "iPhone 16 Pro", base: 960_000, storage: ["128GB", "256GB", "512GB", "1TB"] },
+  { name: "iPhone 16", base: 705_000, storage: ["128GB", "256GB", "512GB"] },
+  { name: "iPhone 15 Pro Max", base: 870_000, storage: ["256GB", "512GB", "1TB"] },
+  { name: "iPhone 15 Pro", base: 720_000, storage: ["128GB", "256GB", "512GB", "1TB"] },
+  { name: "iPhone 15", base: 540_000, storage: ["128GB", "256GB", "512GB"] },
+  { name: "iPhone 14 Pro Max", base: 660_000, storage: ["128GB", "256GB", "512GB", "1TB"] },
+  { name: "iPhone 14 Pro", base: 570_000, storage: ["128GB", "256GB", "512GB", "1TB"] },
+  { name: "iPhone 14", base: 405_000, storage: ["128GB", "256GB", "512GB"] },
+  { name: "iPhone 13", base: 315_000, storage: ["128GB", "256GB", "512GB"] },
+  { name: "iPhone 12", base: 225_000, storage: ["64GB", "128GB", "256GB"] },
+  { name: "iPhone 11", base: 165_000, storage: ["64GB", "128GB", "256GB"] },
 ];
 
 /** Each step up in storage adds this fraction of the base price. */
@@ -75,7 +79,7 @@ export function estimateOffer(modelName: string, storage: string, grade: Grade) 
   if (!model || !g) return 0;
   const tier = Math.max(0, model.storage.indexOf(storage));
   const price = model.base * (1 + tier * STORAGE_STEP) * g.multiplier;
-  return Math.round(price / 5) * 5;
+  return Math.round(price / 1000) * 1000;
 }
 
 export type Photo = {
@@ -99,9 +103,8 @@ export const stock: {
   model: string;
   storage: string;
   color: string;
+  /** Price in naira. */
   price: number;
-  /** Estimated naira price, as supplied by JDHub. */
-  priceNgn: number;
   grade: string;
   photo: Photo;
 }[] = [
@@ -109,8 +112,7 @@ export const stock: {
     model: "iPhone 16 Pro Max",
     storage: "256GB",
     color: "Desert Titanium",
-    price: 989,
-    priceNgn: 1483500,
+    price: 1_483_500,
     grade: "Like New",
     photo: {
       src: commons("e/e2/IPhone_16_Pro_Max_Desert_Titanium_Rear.png"),
@@ -123,8 +125,7 @@ export const stock: {
     model: "iPhone 15 Pro",
     storage: "256GB",
     color: "Black Titanium",
-    price: 689,
-    priceNgn: 1033500,
+    price: 1_033_500,
     grade: "Like New",
     photo: {
       src: commons("a/ae/IPhone_15_pro.png"),
@@ -137,8 +138,7 @@ export const stock: {
     model: "iPhone 15",
     storage: "128GB",
     color: "Black",
-    price: 529,
-    priceNgn: 793500,
+    price: 793_500,
     grade: "Great",
     photo: {
       src: commons("f/f9/Back_of_iPhone_15.jpg"),
@@ -151,8 +151,7 @@ export const stock: {
     model: "iPhone 14 Pro",
     storage: "256GB",
     color: "Deep Purple",
-    price: 579,
-    priceNgn: 868500,
+    price: 868_500,
     grade: "Great",
     photo: {
       src: commons("3/37/Back_of_the_iPhone_14_Pro.jpg"),
@@ -165,8 +164,7 @@ export const stock: {
     model: "iPhone 14",
     storage: "128GB",
     color: "(PRODUCT)RED",
-    price: 399,
-    priceNgn: 598500,
+    price: 598_500,
     grade: "Great",
     photo: {
       src: commons("c/c8/IPhone_14_Product_Red.jpg"),
@@ -179,8 +177,7 @@ export const stock: {
     model: "iPhone 13 Pro",
     storage: "128GB",
     color: "Alpine Green",
-    price: 449,
-    priceNgn: 673500,
+    price: 673_500,
     grade: "Great",
     photo: {
       src: commons("9/91/Back_of_the_iPhone_13_Pro.jpg"),
@@ -193,8 +190,7 @@ export const stock: {
     model: "iPhone 12",
     storage: "64GB",
     color: "Blue",
-    price: 229,
-    priceNgn: 343500,
+    price: 343_500,
     grade: "Good",
     photo: {
       src: commons("8/8a/IPhone_12_-_3.jpg"),
@@ -207,8 +203,7 @@ export const stock: {
     model: "iPhone 11",
     storage: "128GB",
     color: "(PRODUCT)RED",
-    price: 199,
-    priceNgn: 298500,
+    price: 298_500,
     grade: "Good",
     photo: {
       src: commons("4/48/IPhone_11_RED.jpg"),
@@ -221,8 +216,7 @@ export const stock: {
     model: "iPhone SE (3rd gen)",
     storage: "64GB",
     color: "(PRODUCT)RED",
-    price: 179,
-    priceNgn: 268500,
+    price: 268_500,
     grade: "Great",
     photo: {
       src: commons("3/36/Back_of_the_iPhone_SE_%283rd_generation%29.jpg"),
@@ -235,8 +229,7 @@ export const stock: {
     model: "iPhone XR",
     storage: "128GB",
     color: "White",
-    price: 149,
-    priceNgn: 223500,
+    price: 223_500,
     grade: "Good",
     photo: {
       src: commons("6/65/Back_view_of_iPhone_XR_white.jpg"),
@@ -251,12 +244,12 @@ export const services = [
   {
     name: "Screen Repair",
     description: "Same-day screen replacement, all iPhone models.",
-    price: 45,
+    price: 67_500,
   },
   {
     name: "Battery Replacement",
     description: "Genuine-grade battery swap with health check.",
-    price: 35,
+    price: 52_500,
   },
   {
     name: "Free Trade-In Evaluation",
