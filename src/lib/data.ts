@@ -30,7 +30,7 @@ export const grades: {
 }[] = [
   {
     letter: "A",
-    name: "Like New",
+    name: "New",
     description: "No visible wear. Battery health 90%+. Full original function.",
     multiplier: 1,
   },
@@ -54,7 +54,7 @@ export const grades: {
   },
 ];
 
-/** Cash-offer base price (₦) for the smallest storage tier in "Like New" condition. */
+/** Cash-offer base price (₦) for the smallest storage tier in "New" condition. */
 export const models: { name: string; base: number; storage: string[] }[] = [
   { name: "iPhone 16 Pro Max", base: 1_140_000, storage: ["256GB", "512GB", "1TB"] },
   { name: "iPhone 16 Pro", base: 960_000, storage: ["128GB", "256GB", "512GB", "1TB"] },
@@ -113,7 +113,7 @@ export const stock: {
     storage: "256GB",
     color: "Desert Titanium",
     price: 1_483_500,
-    grade: "Like New",
+    grade: "New",
     photo: {
       src: commons("e/e2/IPhone_16_Pro_Max_Desert_Titanium_Rear.png"),
       author: "Padgriffin",
@@ -126,7 +126,7 @@ export const stock: {
     storage: "256GB",
     color: "Black Titanium",
     price: 1_033_500,
-    grade: "Like New",
+    grade: "New",
     photo: {
       src: commons("a/ae/IPhone_15_pro.png"),
       author: "Ka Kit Pang",
