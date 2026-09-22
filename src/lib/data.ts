@@ -100,6 +100,8 @@ export const stock: {
   storage: string;
   color: string;
   price: number;
+  /** Estimated naira price, as supplied by JDHub. */
+  priceNgn: number;
   grade: string;
   photo: Photo;
 }[] = [
@@ -108,6 +110,7 @@ export const stock: {
     storage: "256GB",
     color: "Desert Titanium",
     price: 989,
+    priceNgn: 1483500,
     grade: "Like New",
     photo: {
       src: commons("e/e2/IPhone_16_Pro_Max_Desert_Titanium_Rear.png"),
@@ -121,6 +124,7 @@ export const stock: {
     storage: "256GB",
     color: "Black Titanium",
     price: 689,
+    priceNgn: 1033500,
     grade: "Like New",
     photo: {
       src: commons("a/ae/IPhone_15_pro.png"),
@@ -134,6 +138,7 @@ export const stock: {
     storage: "128GB",
     color: "Black",
     price: 529,
+    priceNgn: 793500,
     grade: "Great",
     photo: {
       src: commons("f/f9/Back_of_iPhone_15.jpg"),
@@ -147,6 +152,7 @@ export const stock: {
     storage: "256GB",
     color: "Deep Purple",
     price: 579,
+    priceNgn: 868500,
     grade: "Great",
     photo: {
       src: commons("3/37/Back_of_the_iPhone_14_Pro.jpg"),
@@ -160,6 +166,7 @@ export const stock: {
     storage: "128GB",
     color: "(PRODUCT)RED",
     price: 399,
+    priceNgn: 598500,
     grade: "Great",
     photo: {
       src: commons("c/c8/IPhone_14_Product_Red.jpg"),
@@ -173,6 +180,7 @@ export const stock: {
     storage: "128GB",
     color: "Alpine Green",
     price: 449,
+    priceNgn: 673500,
     grade: "Great",
     photo: {
       src: commons("9/91/Back_of_the_iPhone_13_Pro.jpg"),
@@ -186,6 +194,7 @@ export const stock: {
     storage: "64GB",
     color: "Blue",
     price: 229,
+    priceNgn: 343500,
     grade: "Good",
     photo: {
       src: commons("8/8a/IPhone_12_-_3.jpg"),
@@ -199,6 +208,7 @@ export const stock: {
     storage: "128GB",
     color: "(PRODUCT)RED",
     price: 199,
+    priceNgn: 298500,
     grade: "Good",
     photo: {
       src: commons("4/48/IPhone_11_RED.jpg"),
@@ -212,6 +222,7 @@ export const stock: {
     storage: "64GB",
     color: "(PRODUCT)RED",
     price: 179,
+    priceNgn: 268500,
     grade: "Great",
     photo: {
       src: commons("3/36/Back_of_the_iPhone_SE_%283rd_generation%29.jpg"),
@@ -225,6 +236,7 @@ export const stock: {
     storage: "128GB",
     color: "White",
     price: 149,
+    priceNgn: 223500,
     grade: "Good",
     photo: {
       src: commons("6/65/Back_view_of_iPhone_XR_white.jpg"),

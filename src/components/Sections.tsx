@@ -196,7 +196,7 @@ export function Stock() {
             <a
               key={item.model}
               href={whatsappLink(
-                `Hi JDHub, is the ${item.model} ${item.storage} (${item.color}, ${item.grade}) at $${item.price} still available?`,
+                `Hi JDHub, is the ${item.model} ${item.storage} (${item.color}, ${item.grade}) at $${item.price} (≈ ₦${item.priceNgn.toLocaleString("en-NG")}) still available?`,
               )}
               target="_blank"
               rel="noopener noreferrer"
@@ -221,6 +221,9 @@ export function Stock() {
                 <span className="text-lg font-bold">${item.price}</span>
                 <span className="font-mono text-xs text-grade">{item.grade}</span>
               </div>
+              <p className="mt-0.5 text-xs text-muted tabular-nums">
+                ≈ ₦{item.priceNgn.toLocaleString("en-NG")}
+              </p>
             </a>
           ))}
         </div>
